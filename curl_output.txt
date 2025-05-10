@@ -1,0 +1,68 @@
+* Host localhost:443 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:443...
+* Connected to localhost (::1) port 443
+* ALPN: curl offers h2,http/1.1
+* (304) (OUT), TLS handshake, Client hello (1):
+} [314 bytes data]
+* (304) (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* (304) (IN), TLS handshake, Unknown (8):
+{ [25 bytes data]
+* (304) (IN), TLS handshake, Certificate (11):
+{ [1458 bytes data]
+* (304) (IN), TLS handshake, CERT verify (15):
+{ [520 bytes data]
+* (304) (IN), TLS handshake, Finished (20):
+{ [52 bytes data]
+* (304) (OUT), TLS handshake, Finished (20):
+} [52 bytes data]
+* SSL connection using TLSv1.3 / AEAD-AES256-GCM-SHA384 / [blank] / UNDEF
+* ALPN: server accepted http/1.1
+* Server certificate:
+*  subject: C=RU; ST=Msc; L=Msc; O=Internet Widgits Pty Ltd; CN=localhost
+*  start date: May  8 15:45:26 2025 GMT
+*  expire date: Dec 29 15:45:26 2026 GMT
+*  issuer: C=RU; ST=Msc; L=Msc; O=Internet Widgits Pty Ltd; CN=localhost
+*  SSL certificate verify result: self signed certificate (18), continuing anyway.
+* using HTTP/1.x
+> GET / HTTP/1.1
+> Host: localhost
+> User-Agent: curl/8.7.1
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 200 OK
+< Server: nginx/1.27.5
+< Date: Sat, 10 May 2025 18:55:43 GMT
+< Content-Type: text/html
+< Content-Length: 410
+< Last-Modified: Sat, 10 May 2025 18:50:07 GMT
+< Connection: keep-alive
+< ETag: "681f9fdf-19a"
+< Accept-Ranges: bytes
+< 
+{ [410 bytes data]
+100   410  100   410    0     0  25949      0 --:--:-- --:--:-- --:--:-- 27333
+* Connection #0 to host localhost left intact
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to NGINX</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center">🚀 NGINX работает на HTTPS</h1>
+</body>
+</html>
