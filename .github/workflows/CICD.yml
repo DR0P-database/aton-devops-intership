@@ -25,15 +25,3 @@ jobs:
 
       - name: Push to DockerHub
         run: docker push ${{ env.IMAGE_NAME }}:${{ env.TAG }}
-
-      - name: Install Railway CLI
-        run: curl -fsSL https://railway.app/install.sh | sh
-
-      - name: Add Railway to PATH
-        run: echo "${HOME}/.railway/bin" >> $GITHUB_PATH
-
-      - name: Login to Railway
-        run: railway login --token ${{ secrets.RAILWAY_API_KEY }}
-
-      - name: Deploy to Railway
-        run: railway up --project ${{ secrets.RAILWAY_PROJECT_ID }}
