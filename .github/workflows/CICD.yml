@@ -11,11 +11,11 @@ jobs:
         runs-on: ubuntu-latests
         steps:
             - name: Clone repo
-            uses: action/checkout@v4
+            uses: actions/checkout@v4
             - name: Build docker image
             run: docker build . -t ${{ env.IMAGE_NAME }}:${{ env.TAG }}
             - name: Login to DockerHub 
-            run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_TOKEN }} #
+            run: docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
             - name: Push to DockerHub
             run: docker push ${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
