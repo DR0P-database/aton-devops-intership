@@ -1,4 +1,4 @@
-name: CI/CD workflow to remote server
+name: CI/CD workflow to Railway
 
 on:
   push:
@@ -26,10 +26,8 @@ jobs:
       - name: Push to DockerHub
         run: docker push ${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
-  deploy:
-    needs: [push]
-    runs-on: ubuntu-latest
+      - name: Login to Railway
+        run: railway login --token ${{ secrets.RAILWAY_API_KEY }}
 
-    steps:
-      - name: Deploy placeholder
-        run: echo Deploy
+      - name: Deploy to Railway
+        run: railway up --project ${{ secrets.RAILWAY_PROJECT_ID }}
